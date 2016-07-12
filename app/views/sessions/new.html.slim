@@ -1,0 +1,11 @@
+.welcome-section style="margin: 0px auto; width: 500px; text-align: center; "
+  h2 Welcome to Simple Chat
+br
+.login-section style="margin: 0px auto; width: 400px; text-align: center; "
+  = form_for :session, url: sessions_path do |f|
+    .form-group
+      = f.label :username, 'Enter a username'
+    .form-group
+      = f.text_field :username, required: true, class: "form-control"
+    .form-group
+      = f.submit 'Start chatting', id: 'login-btn', class: 'btn btn-default'

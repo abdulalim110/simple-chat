@@ -1,0 +1,5 @@
+- users.each do |user|
+  li
+    ul.list-inline
+      li = "#{user.username} "
+      li = link_to "Private Chat", private_chat_messages_path(user_id: user.slug), class: "btn btn-success"

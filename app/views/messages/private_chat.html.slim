@@ -1,0 +1,21 @@
+= hidden_field_tag "first_user", "#{@first_user.slug}"
+= hidden_field_tag "second_user", "#{@second_user.slug}"
+.messages-section
+  ul.list-inline style="padding: 10px 15px;"
+    li
+      = "Signed in as"
+      b =" #{cookies.signed[:username]}"
+    li = link_to "General Messages", messages_path
+    li = link_to "Sign Out", sign_out_sessions_path, method: :delete
+  ul.list-group
+    li.list-group-item
+        h3 = "#{@second_user.slug}"
+    li.list-group-item
+      - @messages.each do |message|
+        p
+          b = "#{message.from_user}"
+          = " #{message.body}"
+      #private-messages
+  .input-section style="margin-left: 15px"
+    b Enter your chat below
+    p = text_field_tag :body, '', id: 'private-chat-speak'

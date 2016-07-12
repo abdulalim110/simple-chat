@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title SimpleChat
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .notice-section style="text-align: center; margin:0px auto; width: 500px; padding-top:10px;"
+      - if flash[:notice].present?
+        .notice.alert.alert-success align="center" data-dismiss="alert"
+          button.close data-dismiss="alert" type="button"
+            span aria-hidden="true"  &times;
+            span.sr-only Close
+          = notice
+      - if flash[:alert].present?
+        .alert.alert-danger align="center" data-dismiss="alert"
+          button.close data-dismiss="alert" type="button"
+            span aria-hidden="true"  &times;
+            span.sr-only Close
+          = alert
+    = yield

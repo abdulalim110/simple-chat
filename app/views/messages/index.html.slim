@@ -1,0 +1,27 @@
+.messages-section
+  ul.list-inline style="padding: 10px 15px;"
+    li
+      = "Signed in as"
+      b =" #{cookies.signed[:username]}"
+    li = link_to "Sign Out", sign_out_sessions_path, method: :delete
+
+  ul.list-group
+    li.list-group-item
+      h3 List Active Users
+      ul#list_users
+        - @users.each do |user|
+          li
+            ul.list-inline
+              li = "#{user.username} "
+              li = link_to "Private Chat", private_chat_messages_path(user_id: user.slug), class: "btn btn-success"
+    li.list-group-item
+      h3 General Chats
+      - @messages.each do |message|
+        p
+          b = "#{message.from_user}"
+          = " #{message.chat}"
+      #messages
+
+  .input-section style="margin-left: 15px"
+    b Enter your chat below
+    p = text_field_tag :body, '', id: 'chat-speak'
