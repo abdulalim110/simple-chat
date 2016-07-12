@@ -14,6 +14,7 @@ class ChatChannel < ApplicationCable::Channel
       message: render_message(data['message']))
   end
 
+
   private
 
   def render_message(message)

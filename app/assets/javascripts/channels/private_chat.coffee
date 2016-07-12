@@ -17,3 +17,4 @@ App.private_chat = App.cable.subscriptions.create "PrivateChatChannel",
 
   private_speak: (msg) ->
     @perform 'private_speak', private_message: msg, first_user_id: $("#first_user").val(), second_user_id: $("#second_user").val()
+

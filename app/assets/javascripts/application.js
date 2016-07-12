@@ -15,8 +15,3 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require_tree .
-
-
-$( "#login-btn" ).click(function() {
-  App.chat.update_list_users
-});
